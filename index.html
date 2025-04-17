@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Job Application</title>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        padding: 20px;
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      /* Form structure */
+      .form-container {
+        max-width: 700px;
+      }
+      .form-group {
+        margin-bottom: 20px;
+      }
+      .form-row {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+      .form-field {
+        flex: 1;
+      }
+
+      /* Labels */
+      .form-label {
+        font-weight: 500;
+        margin-bottom: 8px;
+        display: block;
+        color: #333;
+      }
+      .field-label {
+        font-size: 12px;
+        color: #666;
+        margin-top: 4px;
+      }
+      .required {
+        color: red;
+      }
+
+      /* Form controls */
+      input, select, textarea {
+        width: 100%;
+        padding: 8px 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-size: 14px;
+      }
+      input::placeholder {
+        color: #aaa;
+      }
+
+      /* Radio buttons */
+      .radio-group {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .radio-option {
+        display: flex;
+        align-items: center;
+      }
+      .radio-option input[type="radio"] {
+        margin-right: 10px;
+        width: 18px;
+        height: 18px;
+      }
+
+      /* Date selects */
+      .date-selects {
+        display: flex;
+        gap: 10px;
+      }
+
+      /* Phone input */
+      .phone-container {
+        display: flex;
+        gap: 10px;
+      }
+      .phone-area-code {
+        flex: 0 0 80px;
+      }
+
+      /* Number input with controls */
+      .number-input {
+        position: relative;
+      }
+      .number-controls {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100%;
+        display: flex;
+        align-items: center;
+      }
+      .number-control-button {
+        background: none;
+        border: none;
+        color: #666;
+        font-size: 18px;
+        cursor: pointer;
+        padding: 0 8px;
+      }
+
+      /* Divider */
+      .divider {
+        margin: 30px 0;
+        border-top: 1px solid #eee;
+      }
+
+      /* Skills table */
+      .skills-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+      }
+      .skills-table th, .skills-table td {
+        border: 1px solid #e0e0e0;
+        padding: 10px;
+        text-align: center;
+      }
+      .skills-table th {
+        background-color: #f5f7fa;
+        font-weight: normal;
+      }
+      .skills-table td:first-child {
+        text-align: left;
+        background-color: #f5f7fa;
+      }
+      .skills-table input[type="radio"] {
+        width: 18px;
+        height: 18px;
+        cursor: pointer;
+      }
+
+      /* File upload */
+      .file-upload {
+        border: 2px dashed #ccc;
+        padding: 20px;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+
+      /* Rating scale */
+      .rating-scale {
+        display: flex;
+        justify-content: space-between;
+        width: 300px;
+        margin-bottom: 5px;
+      }
+      .rating-numbers {
+        display: flex;
+        justify-content: space-between;
+        width: 300px;
+      }
+      .rating-numbers span {
+        width: 20px;
+        text-align: center;
+      }
+
+      /* Apply button */
+      .apply-btn {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        width: 100%;
+      }
+      .apply-btn:hover {
+        background-color: #45a049;
+      }
+      .rating-labels {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 5px;
+}
+
+.rating-options {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 300px;
+}
+
+.rating-options label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rating-options input[type="radio"] {
+  margin-bottom: 5px;
+}
+
+
+
+    </style>
+</head>
+<body>
+  <h1>Job Application</h1>
+  <p>Please complete the form below to apply for a position with us.</p>
+  <hr>
+
+  <form>
+    <!-- Full Name -->
+    <div class="form-group">
+      <label class="form-label">Full Name <span class="required">*</span></label>
+      <div class="form-row">
+        <div class="form-field">
+          <input type="text" name="first_name" required>
+          <div class="field-label">First Name</div>
+        </div>
+        <div class="form-field">
+          <input type="text" name="middle_name">
+          <div class="field-label">Middle Name</div>
+        </div>
+        <div class="form-field">
+          <input type="text" name="last_name" required>
+          <div class="field-label">Last Name</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Body Size -->
+    <div class="form-group">
+      <label class="form-label">Body Size <span class="required">*</span></label>
+      <div class="form-row">
+        <div class="form-field">
+          <input type="number" name="cm" placeholder="cm" required>
+          <div class="field-label">Height</div>
+        </div>
+        <div class="form-field">
+          <input type="number" name="kg" placeholder="kg" required>
+          <div class="field-label">Weight</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Birth Date -->
+    <div class="form-group">
+      <label class="form-label">Birth Date</label>
+      <div class="date-selects">
+        <div class="form-field">
+          <select name="month">
+            <option disabled selected>Please select a month</option>
+            <option value="1">January</option>
+            <option value="2">February</option>
+            <option value="3">March</option>
+            <option value="12">December</option>
+          </select>
+          <div class="field-label">Month</div>
+        </div>
+        <div class="form-field">
+          <select name="day">
+            <option disabled selected>Please select a day</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="31">31</option>
+          </select>
+          <div class="field-label">Day</div>
+        </div>
+        <div class="form-field">
+          <select name="year">
+            <option disabled selected>Please select a year</option>
+            <option value="2005">2005</option>
+            <option value="2004">2004</option>
+            <option value="1950">1950</option>
+          </select>
+          <div class="field-label">Year</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Family Status -->
+    <div class="form-group">
+      <label class="form-label">Family Status</label>
+      <div class="radio-group">
+        <label class="radio-option">
+          <input type="radio" name="familyStatus" value="divorced">
+          Divorced
+        </label>
+        <label class="radio-option">
+          <input type="radio" name="familyStatus" value="married">
+          Married
+        </label>
+        <label class="radio-option">
+          <input type="radio" name="familyStatus" value="single">
+          Single
+        </label>
+        <label class="radio-option">
+          <input type="radio" name="familyStatus" value="other">
+          Other
+        </label>
+      </div>
+    </div>
+
+    <!-- Current Address -->
+    <div class="form-group">
+      <label class="form-label">Current Address</label>
+      <div class="form-field">
+        <input type="text" name="streetAddress">
+        <div class="field-label">Street Address</div>
+      </div>
+      <div class="form-field" style="margin-top: 10px;">
+        <input type="text" name="streetAddressLine2">
+        <div class="field-label">Street Address Line 2</div>
+      </div>
+      <div class="form-row" style="margin-top: 10px;">
+        <div class="form-field">
+          <input type="text" name="city">
+          <div class="field-label">City</div>
+        </div>
+        <div class="form-field">
+          <input type="text" name="stateProvince">
+          <div class="field-label">State / Province</div>
+        </div>
+      </div>
+      <div class="form-field" style="margin-top: 10px;">
+        <input type="text" name="postalCode">
+        <div class="field-label">Postal / Zip Code</div>
+      </div>
+    </div>
+
+    <!-- Contact Information -->
+    <div class="form-group">
+      <div class="form-row">
+        <div class="form-field">
+          <label class="form-label">Email Address</label>
+          <input type="email" name="email" placeholder="ex: myname@example.com">
+          <div class="field-label">example@example.com</div>
+        </div>
+        <div class="form-field">
+          <label class="form-label">Phone Number</label>
+          <div class="phone-container">
+            <div class="phone-area-code">
+              <input type="tel" name="areaCode" placeholder="90" value="90">
+              <div class="field-label">Area Code</div>
+            </div>
+            <div class="phone-number">
+              <input type="tel" name="phoneNumber" placeholder="Phone Number" value="9000909">
+              <div class="field-label">Phone Number</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Professional Information -->
+    <div class="form-group">
+      <div class="form-row">
+        <div class="form-field">
+          <label class="form-label">LinkedIn</label>
+          <input type="text" name="linkedin">
+        </div>
+        <div class="form-field">
+          <label class="form-label">Experience</label>
+          <div class="number-input">
+            <input type="number" name="experience" min="0" step="1">
+            <div class="number-controls">
+              <button type="button" class="number-control-button" onclick="this.parentNode.previousElementSibling.stepDown()">−</button>
+              <button type="button" class="number-control-button" onclick="this.parentNode.previousElementSibling.stepUp()">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Position Information -->
+    <div class="form-group">
+      <div class="form-row">
+        <div class="form-field">
+          <label class="form-label">Position Applied</label>
+          <select name="position">
+            <option disabled selected>Please Select</option>
+            <option value="software-engineer">Software Engineer</option>
+            <option value="designer">Designer</option>
+            <option value="product-manager">Product Manager</option>
+            <option value="marketing-specialist">Marketing Specialist</option>
+            <option value="sales-representative">Sales Representative</option>
+            <option value="customer-support">Customer Support</option>
+            <option value="operations-manager">Operations Manager</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label class="form-label">How did you hear about us</label>
+          <select name="referral">
+            <option disabled selected>Please Select</option>
+            <option value="social-media">Social Media</option>
+            <option value="job-board">Job Board</option>
+            <option value="company-website">Company Website</option>
+            <option value="employee-referral">Employee Referral</option>
+            <option value="recruiter">Recruiter</option>
+            <option value="news-article">News Article</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Available Start Date</label>
+      <input type="date" name="startDate" value="2025-04-17">
+    </div>
+
+    <!-- Computer Skills -->
+    <div class="form-group">
+      <label class="form-label">Computer Skills</label>
+      <table class="skills-table">
+        <thead>
+          <tr>
+            <th style="width: 200px;"></th>
+            <th>Beginner</th>
+            <th>Elementary</th>
+            <th>Advanced</th>
+            <th>Expert</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Excel</td>
+            <td><input type="radio" name="excel" value="beginner"></td>
+            <td><input type="radio" name="excel" value="elementary"></td>
+            <td><input type="radio" name="excel" value="advanced"></td>
+            <td><input type="radio" name="excel" value="expert"></td>
+          </tr>
+          <tr>
+            <td>Word</td>
+            <td><input type="radio" name="word" value="beginner"></td>
+            <td><input type="radio" name="word" value="elementary"></td>
+            <td><input type="radio" name="word" value="advanced"></td>
+            <td><input type="radio" name="word" value="expert"></td>
+          </tr>
+          <tr>
+            <td>1C</td>
+            <td><input type="radio" name="1c" value="beginner"></td>
+            <td><input type="radio" name="1c" value="elementary"></td>
+            <td><input type="radio" name="1c" value="advanced"></td>
+            <td><input type="radio" name="1c" value="expert"></td>
+          </tr>
+          <tr>
+            <td>Programming Language</td>
+            <td><input type="radio" name="programming" value="beginner"></td>
+            <td><input type="radio" name="programming" value="elementary"></td>
+            <td><input type="radio" name="programming" value="advanced"></td>
+            <td><input type="radio" name="programming" value="expert"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+<!-- English Ability -->
+<div class="form-group">
+  <label class="form-label">English Language Ability</label>
+  <div class="rating-labels">
+    <span>Worst</span>
+    <span>Best</span>
+  </div>
+  <div class="rating-options">
+    <label>
+      <input type="radio" name="english-ability" value="1">
+      <span>1</span>
+    </label>
+    <label>
+      <input type="radio" name="english-ability" value="2">
+      <span>2</span>
+    </label>
+    <label>
+      <input type="radio" name="english-ability" value="3" checked>
+      <span>3</span>
+    </label>
+    <label>
+      <input type="radio" name="english-ability" value="4">
+      <span>4</span>
+    </label>
+    <label>
+      <input type="radio" name="english-ability" value="5">
+      <span>5</span>
+    </label>
+  </div>
+</div>
+
+
+    <!-- Documents -->
+    <div class="form-group">
+      <label class="form-label">Applicant Document (Diploma, Certificate)</label>
+      <div class="file-upload">
+        <p>Browse Files</p>
+        <p>Drag and drop files here</p>
+        <input type="file" name="document">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Upload Your Resume</label>
+      <div class="file-upload">
+        <p>Browse Files</p>
+        <p>Drag and drop files here</p>
+        <input type="file" name="resume">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Cover Letter</label>
+      <textarea name="cover-letter" rows="4"></textarea>
+    </div>
+
+    <button type="submit" class="apply-btn">Apply</button>
+  </form>
+</body>
+</html>
